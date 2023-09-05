@@ -16,9 +16,13 @@ jobs:
         run: pnpm install
       - name: Build 🔧
         run: pnpm build
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@4.0.0
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
         with:
-          branch: gh-pages # The branch the action should deploy to.
-          folder: dist # The folder the action should deploy.
-          clean: true # Automatically remove deleted files from the deploy branch
+          path: 'dist/'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
+
