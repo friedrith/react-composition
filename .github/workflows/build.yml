@@ -1,0 +1,24 @@
+name: Build and Deploy
+on:
+  push:
+    branches: [master]
+permissions:
+      contents: write
+jobs:
+  build-gh-pages:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Install 🔧
+        run: pnpm install
+      - name: Build 🔧
+        run: pnpm build
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.0.0
+        with:
+          branch: gh-pages # The branch the action should deploy to.
+          folder: dist # The folder the action should deploy.
+          clean: true # Automatically remove deleted files from the deploy branch
