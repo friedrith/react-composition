@@ -3,7 +3,8 @@
     React Composition
   </h1>
 </div>
-This repo is an example of how to use composition in React.
+
+This repo is an example of how to use **Composition Pattern in React**.
 
 ## Getting started
 
