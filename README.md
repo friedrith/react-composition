@@ -3,7 +3,6 @@
     Composition Pattern in React
   </h3>
   <p align="center">
-    <br />
     <a href="https://friedrith.github.io/react-composition">View Demo</a>
   </p>
 </div>
