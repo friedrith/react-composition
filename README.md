@@ -2,6 +2,10 @@
   <h1 text-align="center">
     React Composition
   </h1>
+
+  <p>
+    <a href="https://friedrith.github.io/react-composition">Demo</a>
+  </p>
 </div>
 
 This repo is an example of how to use **Composition Pattern in React**.
@@ -18,6 +22,7 @@ pnpm dev
 
 - [React](https://reactjs.org/)
 - [Tailwind](https://tailwindcss.com/)
-- [Neumorphism](https://neumorphism.io)
 - [Headless UI](https://headlessui.dev/)
+- [Github Actions](https://github.com/features/actions)
+- [Neumorphism](https://neumorphism.io)
 - [cloneElement](https://react.dev/reference/react/cloneElement)
