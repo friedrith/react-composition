@@ -1,10 +1,8 @@
 <div align="center">
   <h3 text-align="center">
-    React Composition
+    Composition Pattern in React
   </h3>
   <p align="center">
-    This repo is an example of how to use <strong>Composition Pattern in React</strong>.
-    <br />
     <br />
     <a href="https://friedrith.github.io/react-composition">View Demo</a>
   </p>
