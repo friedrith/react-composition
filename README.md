@@ -5,6 +5,8 @@
   <p align="center">
     <a href="https://friedrith.github.io/react-composition">View Demo</a>
   </p>
+
+  <img src=".assets/screenshot.png" alt="Screenshot" height="300" />
 </div>
 
 ## Getting started
