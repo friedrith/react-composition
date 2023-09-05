@@ -8,7 +8,7 @@ permissions:
   pages: write
   id-token: write
 concurrency:
-  group: "pages"
+  group: 'pages'
   cancel-in-progress: false
 jobs:
   build-gh-pages:
@@ -41,6 +41,8 @@ jobs:
         run: pnpm install
       - name: Build 🔧
         run: pnpm build
+        env:
+          BASE_URL: '/react-composition'
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
@@ -50,4 +52,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
-

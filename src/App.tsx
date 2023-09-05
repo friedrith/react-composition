@@ -55,7 +55,7 @@ const routes = [
 const App = () => {
   return (
     <div className='container'>
-      <HashRouter>
+      <HashRouter basename={process.env.BASE_URL ?? '/'}>
         <Navigation count={routes.length} />
         <Routes>
           {routes.map(({ title, component }, index) => (
