@@ -2,10 +2,9 @@
   <h3 text-align="center">
     React Composition
   </h3>
-  
-  <br />
   <p align="center">
     This repo is an example of how to use <strong>Composition Pattern in React</strong>.
+    <br />
     <br />
     <a href="https://friedrith.github.io/react-composition">View Demo</a>
   </p>
