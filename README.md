@@ -1,7 +1,7 @@
 <div align="center">
-  <h text-align="center">
+  <h3 text-align="center">
     React Composition
-  </h>
+  </h3>
   
   <br />
   <p align="center">
