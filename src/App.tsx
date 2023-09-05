@@ -1,5 +1,4 @@
-import { useState } from 'react'
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
+import { HashRouter, Routes, Route, Link, Navigate } from 'react-router-dom'
 
 import Initial from './00_Initial'
 import ClearButtonNaive from './01_ClearButtonNaive'
@@ -56,7 +55,7 @@ const routes = [
 const App = () => {
   return (
     <div className='container'>
-      <BrowserRouter>
+      <HashRouter>
         <Navigation count={routes.length} />
         <Routes>
           {routes.map(({ title, component }, index) => (
@@ -66,8 +65,9 @@ const App = () => {
               element={<Layout title={title} component={component} />}
             />
           ))}
+          <Route path='*' element={<Navigate to='/0' replace={true} />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </div>
   )
 }
