@@ -1,14 +1,16 @@
 <div align="center">
-  <h1 text-align="center">
+  <h text-align="center">
     React Composition
-  </h1>
-
-  <p>
-    <a href="https://friedrith.github.io/react-composition">Demo</a>
+  </h>
+  
+  <br />
+  <p align="center">
+    This repo is an example of how to use <strong>Composition Pattern in React</strong>.
+    <br />
+    <br />
+    <a href="https://friedrith.github.io/react-composition">View Demo</a>
   </p>
 </div>
-
-This repo is an example of how to use **Composition Pattern in React**.
 
 ## Getting started
 
@@ -18,7 +20,11 @@ pnpm dev
 
 ```
 
-## Technologies
+## License
+
+Distributed under the MIT License. See [LICENSE](./LICENSE) for more information.
+
+## Acknowledgements
 
 - [React](https://reactjs.org/)
 - [Tailwind](https://tailwindcss.com/)
