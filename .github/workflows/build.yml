@@ -41,8 +41,6 @@ jobs:
         run: pnpm install
       - name: Build 🔧
         run: pnpm build
-        env:
-          BASE_URL: '/react-composition'
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
