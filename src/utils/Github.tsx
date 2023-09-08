@@ -1,7 +1,7 @@
 export default function Github() {
   return (
     <a
-      className='fixed top-5 right-4 text-gray-400 hover:text-gray-900 transition-colors duration-300'
+      className='fixed top-5 right-4 text-gray-300 hover:text-gray-900 transition-colors duration-300'
       href='https://github.com/friedrith/react-composition'
     >
       <svg
