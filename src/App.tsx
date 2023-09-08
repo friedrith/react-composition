@@ -12,6 +12,8 @@ import * as MoreFeatures from './08_MoreFeatures'
 
 import Navigation from './utils/Navigation'
 import Layout from './utils/Layout'
+import Footer from './utils/Footer'
+import Github from './utils/Github'
 
 const routes = [
   {
@@ -57,6 +59,7 @@ const App = () => {
     <div className='container'>
       <HashRouter>
         <Navigation count={routes.length} />
+        <Github />
         <Routes>
           {routes.map(({ title, component }, index) => (
             <Route
@@ -67,6 +70,7 @@ const App = () => {
           ))}
           <Route path='*' element={<Navigate to='/0' replace={true} />} />
         </Routes>
+        <Footer />
       </HashRouter>
     </div>
   )
