@@ -14,6 +14,7 @@ import Navigation from './utils/Navigation'
 import Layout from './utils/Layout'
 import Footer from './utils/Footer'
 import Github from './utils/Github'
+import Page from './utils/Page'
 
 const routes = [
   {
@@ -58,19 +59,18 @@ const App = () => {
   return (
     <div className='container'>
       <HashRouter>
-        <Navigation count={routes.length} />
-        <Github />
-        <Routes>
-          {routes.map(({ title, component }, index) => (
-            <Route
-              key={title}
-              path={`/${index}`}
-              element={<Layout title={title} component={component} />}
-            />
-          ))}
-          <Route path='*' element={<Navigate to='/0' replace={true} />} />
-        </Routes>
-        <Footer />
+        <Page routes={routes}>
+          <Routes>
+            {routes.map(({ title, component }, index) => (
+              <Route
+                key={title}
+                path={`/${index}`}
+                element={<Layout title={title} component={component} />}
+              />
+            ))}
+            <Route path='*' element={<Navigate to='/0' replace={true} />} />
+          </Routes>
+        </Page>
       </HashRouter>
     </div>
   )
