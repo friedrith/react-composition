@@ -18,7 +18,7 @@ import Page from './utils/Page'
 
 const routes = [
   {
-    title: 'Initial',
+    title: 'Text Input',
     component: Initial,
   },
   {
