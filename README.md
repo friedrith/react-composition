@@ -9,8 +9,7 @@
   <img src=".assets/screenshot.png" alt="Screenshot" height="300" />
 </div>
 
-This is a demo project to show how to use composition pattern in React. It is part of a speech at the [React & React Native MTL Monthly Meetup
-](https://www.meetup.com/react-mtl/events/294497412/) of November 2023.
+This is a demo project to show how to use composition pattern in React. It is part of a speech at the [React & React Native MTL Monthly Meetup](https://www.meetup.com/react-mtl/events/294497412/) of November 2023.
 
 ## Getting started
 
