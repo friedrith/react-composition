@@ -1,24 +1,23 @@
 ---
 theme: default
-# highlighter: shiki
+highlighter: shiki
 lineNumbers: false
 fonts:
   sans: 'Inter var, sans-serif'
 info: |
-  ## Slidev Starter Template
-  Presentation slides for developers.
-
-  Learn more at [Sli.dev](https://sli.dev)
+  ## React Composition
+  Presentation slides for the [React & React Native MTL Monthly Meetup](https://www.meetup.com/react-mtl/events/294497412/]
 transition: slide-left
 title: Composition Pattern in React
 layout: cover
 image: https://images.unsplash.com/photo-1633356122102-3fe601e05bd2
 navigation: true
+download: true
 ---
 
 <h1 class="line-height-tight!">Composition Pattern<br/>in React</h1>
 
-<h2>How to keep components clean</h2>
+<h2 class="font-700">How to keep components clean</h2>
 
 <div class="font-700 pt-4 text-gray-600">
     Thibault FRIEDRICH - 2023/11/02
@@ -65,10 +64,10 @@ The last comment block of each slide will be treated as slide notes. It will be 
 
 - Frontend developer for 8 years
 - Using _React_ for 6+ years and vove it
-- Strong focus on Ux, Agile and **Code craftsmanship**
+- Strong focus on Ux, Agile and Code craftsmanship
   - how to create usable products
   - how to keep flexibility
-  - how to write clean code
+  - how to write **Clean Code**
 - Working at Plusgrade:
   - supporting other frontend developers to improve their code quality
 
