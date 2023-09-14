@@ -34,16 +34,6 @@ function ClearButton({ value, onChange }) {
   )
 }
 
-function ValidityIndicator({ value, validityRegex }) {
-  return (
-    `${value}`.match(validityRegex) && (
-      <div className='end-decorator'>
-        <CheckIcon className='h-6 w-6 indicator' />
-      </div>
-    )
-  )
-}
-
 export function Example1() {
   const [value, setValue] = useState('')
 
@@ -53,6 +43,16 @@ export function Example1() {
       onChange={setValue}
       endDecorator={<ClearButton value={value} onChange={setValue} />}
     />
+  )
+}
+
+function ValidityIndicator({ value, validityRegex }) {
+  return (
+    `${value}`.match(validityRegex) && (
+      <div className='end-decorator'>
+        <CheckIcon className='h-6 w-6 indicator' />
+      </div>
+    )
   )
 }
 

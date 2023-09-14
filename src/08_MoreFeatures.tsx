@@ -21,13 +21,11 @@ export interface InputProps {
 const InputContext = createContext<
   Omit<InputProps, 'endDecorator'> & {
     setDynamicProps: (newProps: object) => void
-    dynamicProps: object
     ref: React.MutableRefObject<HTMLInputElement>
   }
 >({
   value: '',
   type: '',
-  dynamicProps: {},
   onChange: () => {},
   setDynamicProps: () => {},
   ref: undefined,
@@ -185,7 +183,6 @@ export function Example4() {
 
   return (
     <Input
-      type='password'
       value={value}
       onChange={setValue}
       endDecorator={<Input.CopyToClipboard />}
@@ -214,7 +211,6 @@ export function Example5() {
 
   return (
     <Input
-      type='password'
       value={value}
       onChange={setValue}
       endDecorator={<Input.KeyBinding keyBinding='⌘+K' />}

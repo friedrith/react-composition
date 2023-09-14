@@ -18,14 +18,14 @@ function Input({ value, onChange, clearable, validityRegex }: InputProps) {
         onChange={event => onChange(event.target.value, event)}
         placeholder='Type something...'
       />
-      {clearable && (
+      {clearable && value && (
         <div className='end-decorator'>
           <button className='button' onClick={() => onChange('')}>
             <XCircleIcon className='h-8 w-8' />
           </button>
         </div>
       )}
-      {validityRegex.test(`${value}`) && (
+      {validityRegex?.test(`${value}`) && (
         <div className='end-decorator'>
           <CheckIcon className='h-6 w-6 indicator' />
         </div>
