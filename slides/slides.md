@@ -12,6 +12,9 @@ title: Composition Pattern in React
 layout: cover
 image: https://images.unsplash.com/photo-1633356122102-3fe601e05bd2
 navigation: true
+colorSchema: light
+routerMode: hash
+favicon: https://secure.meetupstatic.com/next/images/general/favicon.ico
 ---
 
 <h1 class="line-height-tight!">Composition Pattern<br/>in React</h1>

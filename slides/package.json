@@ -6,6 +6,9 @@
     "dev": "slidev --open",
     "export": "slidev export"
   },
+  "slidev": {
+    "colorSchema": "light"
+  },
   "dependencies": {
     "@slidev/cli": "^0.43.0",
     "@slidev/theme-default": "latest"
