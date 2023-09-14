@@ -11,8 +11,8 @@
     "@slidev/theme-default": "latest"
   },
   "devDependencies": {
+    "@unocss/reset": "^0.55.7",
     "playwright-chromium": "^1.38.0",
-    "tailwind.css": "link:@unocss/reset/tailwind.css",
     "vue": "^3.3.4"
   }
 }

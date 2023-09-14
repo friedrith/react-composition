@@ -13,12 +13,12 @@ dependencies:
     version: 0.21.2
 
 devDependencies:
+  '@unocss/reset':
+    specifier: ^0.55.7
+    version: 0.55.7
   playwright-chromium:
     specifier: ^1.38.0
     version: 1.38.0
-  tailwind.css:
-    specifier: link:@unocss/reset/tailwind.css
-    version: link:@unocss/reset/tailwind.css
   vue:
     specifier: ^3.3.4
     version: 3.3.4
@@ -1173,7 +1173,6 @@ packages:
 
   /@unocss/reset@0.55.7:
     resolution: {integrity: sha512-yvmLhxqUNgf6wue7IvhV/FdrQW9H9LF1Bmmhwwaiz2aV0E74aN4pbuYPZwNq3YafsQvNQ0UdtuXjddY4QMRCPw==}
-    dev: false
 
   /@unocss/scope@0.55.7:
     resolution: {integrity: sha512-r0CaS1aSpcC37ztqOJ3qaWIzM6zwdlX8r0rib2vTvWTckw1J0ocVhjNkWRBM9kRWte006JhecdiZzXNHA40akg==}
