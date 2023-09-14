@@ -41,6 +41,12 @@ jobs:
         run: pnpm install
       - name: Build 🔧
         run: pnpm build
+      - name: Install Slides
+        run: pnpm install
+        working-directory: slides
+      - name: Build slides 🔧
+        run: pnpm build
+        working-directory: slides
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
