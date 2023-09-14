@@ -8,13 +8,11 @@
   },
   "dependencies": {
     "@slidev/cli": "^0.43.0",
-    "@slidev/theme-apple-basic": "^0.20.0",
-    "@slidev/theme-default": "latest",
-    "@slidev/theme-seriph": "latest",
-    "slidev-theme-geist": "^0.8.1"
+    "@slidev/theme-default": "latest"
   },
   "devDependencies": {
     "playwright-chromium": "^1.38.0",
+    "tailwind.css": "link:@unocss/reset/tailwind.css",
     "vue": "^3.3.4"
   }
 }
