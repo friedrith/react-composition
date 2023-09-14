@@ -13,6 +13,7 @@
   "devDependencies": {
     "@unocss/reset": "^0.55.7",
     "playwright-chromium": "^1.38.0",
+    "vite-plugin-vue-server-ref": "^0.3.4",
     "vue": "^3.3.4"
   }
 }
