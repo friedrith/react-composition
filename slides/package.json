@@ -2,7 +2,7 @@
   "name": "react-composition-slides",
   "private": true,
   "scripts": {
-    "build": "slidev build --base /friedrith/react-composition/slides --out ../dist/slides",
+    "build": "slidev build --base /react-composition/slides --out ../dist/slides",
     "dev": "slidev --open",
     "export": "slidev export"
   },
