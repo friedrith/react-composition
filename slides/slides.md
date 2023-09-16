@@ -108,8 +108,8 @@ image: complexity.webp
 </p>
 
 - keep your code clean
-- make your code more readable
-- ensure the code is scalable
+  - make your code more readable
+  - ensure the code is scalable
 - maintain velocity over time
 
 > Craftsmanship: no absolute rule, but principles to adapt and make compromises.
