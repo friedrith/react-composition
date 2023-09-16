@@ -37,29 +37,6 @@ h1 {
 }
 </style>
 
-
-<!-- <div class="absolute bottom-10 text-left pl-10">
-  <h1>Composition Pattern<br/>in React</h1>
-  <p>How to keep components clean</p>
-  <div class="font-700">
-    Thibault FRIEDRICH - 2023/11/02
-  </div>
-</div> -->
-
-<!-- <div class="abs-br m-6 flex gap-2">
-  <button @click="$slidev.nav.openInEditor()" title="Open in Editor" class="text-xl slidev-icon-btn opacity-50 !border-none !hover:text-white">
-    <carbon:edit />
-  </button>
-  <a href="https://github.com/slidevjs/slidev" target="_blank" alt="GitHub"
-    class="text-xl slidev-icon-btn opacity-50 !border-none !hover:text-white">
-    <carbon-logo-github />
-  </a>
-</div> -->
-
-<!--
-The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
--->
-
 ---
 
 # Introducing myself: Thibault Friedrich
@@ -72,6 +49,7 @@ The last comment block of each slide will be treated as slide notes. It will be 
   - how to write **Clean Code**
 - Working at Plusgrade:
   - supporting other frontend developers to improve their code quality
+- Available for freelance missions
 
 <div class="abs-br m-6 flex gap-2">
   <!-- <button @click="$slidev.nav.openInEditor()" title="Open in Editor" class="text-xl slidev-icon-btn opacity-50 !border-none !hover:text-white">
@@ -195,10 +173,7 @@ url: https://friedrith.github.io/react-composition/#/1?demo=1
 
 # Clear Button
 
-
 ```tsx
-
-
 export interface InputProps {
   value: string | number
   onChange: (value: string, event?: React.SyntheticEvent) => void
@@ -305,7 +280,6 @@ Impact on the development:
 - one file: one bottleneck
 - harder to read
 - harder to maintain
-
 
 > Flag Argument: a common code smell in all languages (not only React)
 
@@ -754,8 +728,6 @@ export default function Example() {
 }
 ```
 
-
-
 ---
 layout: two-cols
 ---
@@ -903,6 +875,8 @@ layout: two-cols
 - [https://www.linkedin.com/in/thibault-friedrich/](https://www.linkedin.com/in/thibault-friedrich/)
 - [https://github.com/friedrith](https://github.com/friedrith)
 - [https://medium.com/@thibault-friedrich](https://medium.com/@thibault-friedrich)
+- [https://thibaultfriedrich.io](https://thibaultfriedrich.io)
+
 
 ::right::
 
