@@ -101,7 +101,7 @@ layout: two-cols
 image: complexity.webp
 ---
 
-# Clean Code
+# Agile, Code Craftsmanship & Clean Code
 
 <p class="text-center italic py-10 text-xl">
   Working software over comprehensive documentation
