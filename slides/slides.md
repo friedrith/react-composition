@@ -71,8 +71,11 @@ h1 {
 
 ---
 
-# Organizer of Hackathon dev design
+# Organizer of Hackathon DEV & DESIGN
 
+<div class="flex flex-col items-center">
+  <img src="/hackathon.png" width="800" alt="Hackathon website" />
+</div>
 
 ---
 
