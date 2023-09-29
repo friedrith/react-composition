@@ -1,6 +1,5 @@
 import { useState } from 'react'
-import { XCircleIcon, CheckIcon } from '@heroicons/react/24/outline'
-import emailRegex from './utils/emailRegex'
+import { XCircleIcon } from '@heroicons/react/24/outline'
 
 export interface InputProps {
   value: string | number

@@ -2,6 +2,6 @@
   "compilerOptions": {
     "jsx": "react-jsx",
     "target": "ES2017",
-    "moduleResolution": "NodeNext"
+    "moduleResolution": "bundler"
   },
 }
