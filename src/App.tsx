@@ -7,7 +7,7 @@ import * as BasicComposition from './03_BasicComposition'
 import RenderProps from './04_RenderProps'
 import CloneElement from './05_CloneElement'
 import CompositionContext from './06_CompositionContext'
-import SubComponentPattern from './07_SubComponent'
+import CompoundPattern from './07_CompoundPattern'
 import * as MoreFeatures from './08_MoreFeatures'
 
 import Navigation from './utils/Navigation'
@@ -46,8 +46,8 @@ const routes = [
     component: CompositionContext,
   },
   {
-    title: 'SubComponent Pattern',
-    component: SubComponentPattern,
+    title: 'Compound Pattern',
+    component: CompoundPattern,
   },
   {
     title: 'More Features',

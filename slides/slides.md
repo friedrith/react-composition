@@ -799,7 +799,7 @@ export default function Example() {
 layout: two-cols
 ---
 
-# React SubComponent Pattern
+# React Compound Pattern
 
 - make the coupling between `Input` and `ClearButton` visible for all the developers
 
