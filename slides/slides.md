@@ -89,6 +89,7 @@ h1 {
     - Implementation  
 - How to solve it with Composition pattern in React
   - Big dive to enhance the readibility of the code
+  - [Compound pattern](https://www.patterns.dev/posts/compound-pattern)
 
 > ⚠️ A lot of code incoming ⚠️
 
