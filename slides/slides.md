@@ -879,7 +879,8 @@ layout: two-cols
 - [https://www.linkedin.com/in/thibault-friedrich/](https://www.linkedin.com/in/thibault-friedrich/)
 - [https://github.com/friedrith](https://github.com/friedrith)
 - [https://medium.com/@thibault-friedrich](https://medium.com/@thibault-friedrich)
-- [https://thibaultfriedrich.io](https://thibaultfriedrich.io)
+- [thibault.friedrich@interaction-dynamics.io](mailto:https://thibault.friedrich@interaction-dynamics.io)
+- [https://interaction-dynamics.io](https://interaction-dynamics.io)
 
 
 ::right::
