@@ -46,9 +46,9 @@ export function Example1() {
   )
 }
 
-function ValidityIndicator({ value, validityRegex }) {
+function ValidityIndicator({ value, regex }) {
   return (
-    `${value}`.match(validityRegex) && (
+    `${value}`.match(regex) && (
       <div className='end-decorator'>
         <CheckIcon className='h-6 w-6 indicator' />
       </div>
@@ -63,9 +63,7 @@ export function Example2() {
     <Input
       value={value}
       onChange={setValue}
-      endDecorator={
-        <ValidityIndicator value={value} validityRegex={minLengthRegex} />
-      }
+      endDecorator={<ValidityIndicator value={value} regex={minLengthRegex} />}
     />
   )
 }

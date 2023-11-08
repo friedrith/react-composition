@@ -22,7 +22,7 @@ favicon: https://secure.meetupstatic.com/next/images/general/favicon.ico
 <h2 class="font-700">How to keep components clean</h2>
 
 <div class="font-700 pt-4 text-gray-600">
-    Thibault FRIEDRICH - 2023/11/02
+    Thibault FRIEDRICH - 2023/11/15
 </div>
 
 <style>
