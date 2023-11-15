@@ -84,11 +84,8 @@ h1 {
 # Agenda
 
 - Clean Code
-- One Common mistake while writing React components
-  - Simulate process of development 
-    - First version of a simple feature
-    - New requirements
-    - Implementation  
+- Simulate process of development 
+  - One Common mistake while writing React components
 - How to solve it with Composition pattern in React
   - Big dive to enhance the readibility of the code
   - [Compound pattern](https://www.patterns.dev/posts/compound-pattern)
@@ -129,6 +126,20 @@ image: complexity.webp
     margin-top: 2rem!important;
   }
 
+</style>
+
+---
+
+# Developer life
+
+<div class="flex flex-col items-center">
+  <img src="/developer-life.svg" width="400" alt="Developer life" />
+</div>
+
+<style>
+  li {
+    font-size: 2rem;
+  }
 </style>
 
 ---
