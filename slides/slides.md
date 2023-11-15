@@ -41,8 +41,9 @@ h1 {
 
 # Introducing myself: Thibault Friedrich
 
-- Frontend developer for 8 years
-- Using _React_ for 6+ years and vove it
+- Frontend developer for 9 years
+- Coding since I am 12 years old
+- Using _React_ for 6+ years and love it
 - Strong focus on Ux, Agile and Code craftsmanship
   - how to create usable products
   - how to keep flexibility
@@ -74,6 +75,7 @@ h1 {
 # Organizer of Hackathon DEV & DESIGN
 
 <div class="flex flex-col items-center">
+  <a href="https://hackathon-dev-design.vercel.app/">https://hackathon-dev-design.vercel.app</a>
   <img src="/hackathon.png" width="800" alt="Hackathon website" />
 </div>
 
@@ -881,6 +883,7 @@ layout: two-cols
 - [https://medium.com/@thibault-friedrich](https://medium.com/@thibault-friedrich)
 - [thibault.friedrich@interaction-dynamics.io](mailto:thibault.friedrich@interaction-dynamics.io)
 - [https://interaction-dynamics.io](https://interaction-dynamics.io)
+- [https://hackathon-dev-design.vercel.app](https://hackathon-dev-design.vercel.app)
 
 
 ::right::
