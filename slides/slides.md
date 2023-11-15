@@ -293,7 +293,7 @@ For each new feature:
 
 Impact on the development:
 
-- code spaghetti
+- spaghetti code 
 - one file: one bottleneck
 - harder to read
 - harder to maintain
