@@ -813,7 +813,7 @@ export default function Example() {
 layout: two-cols
 ---
 
-# React Compound Pattern
+# Context + React Compound Pattern
 
 - make the coupling between `Input` and `ClearButton` visible for all the developers
 
@@ -875,6 +875,24 @@ url: https://friedrith.github.io/react-composition/#/8?demo=1
   endDecorator={<Input.KeyBinding keyBinding='⌘+K' />}
 />
 ```
+
+---
+
+# Conclusion
+
+- New patterns: `cloneElement`, `render` function, `Compound` pattern
+- But more important: React composition
+- Composition is the most underrated pattern in React
+- every time you have a new feature: React composition first
+
+> Craftsmanship: no absolute rule, exception always exist
+
+<style>
+  blockquote {
+    margin-top: 2rem!important;
+  }
+
+</style>
 
 ---
 layout: center
