@@ -15,6 +15,7 @@ navigation: true
 colorSchema: light
 routerMode: hash
 favicon: https://secure.meetupstatic.com/next/images/general/favicon.ico
+
 ---
 
 <h1 class="line-height-tight!">SOLID Principle<br/>in React</h1>
@@ -299,19 +300,31 @@ layout: two-cols
 
 # Code Not scalable
 
-For each new feature:
+<div v-click>
 
+For each new feature:
 - one property 
 - condition in the main function
 
-Impact on the development:
+</div>
 
+<div v-click>
+
+Impact on the development:
 - spaghetti code 
 - one file: one bottleneck
 - harder to read
 - harder to maintain
 
+</div>
+
+<div v-click>
+
 > Flag Argument: a common code smell in all languages (not only React)
+
+</div>
+
+
 
 ::right::
 
@@ -377,11 +390,20 @@ blockquote {
   
 
 
-<span v-click> **How to apply it in React?** </span>
+<span v-click> **How to apply them in React?** </span>
 
   <div v-click class="mt-2">➡️ Smaller components</div>
   <div v-click class="mt-2">➡️ Add features without touching the components</div>
 
+
+<div v-click>
+
+> Seems obvious. But hard in reality.
+> 
+> But I see the previous errors in a lot of codebases. The goal is to master the following patterns to avoid this kind of error.
+
+
+</div>
 
 <style>
 h1 + p {
@@ -622,17 +644,24 @@ export function WithValidityIndicator() {
 }
 ```
 
+<div class="absolute top-65 right-15 text-white h-10 w-40" v-mark="{ at: 1, color: 'orange', type: 'circle' }"></div>
+
+
+<div class="absolute bottom-5 right-20 text-white h-10 w-40" v-mark="{ at: 1, color: 'orange', type: 'circle' }"></div>
+
+
 ---
 
-# How to reduce boilerplate
+# So much boilerplate!
 
-Increase the level of coupling.
+How to reduce it:
 
-3 options:
+- `Context`
+- `render` function pattern
+- slots and slotProps pattern
+- `cloneElement`
 
-- low: `cloneElement`
-- low: `renderProps`
-- high: `Context`
+> Each of these solutions has its own pros and cons
 
 <style>
 
@@ -642,6 +671,177 @@ h1 + p {
 }
 
 </style>
+
+---
+layout: two-cols
+---
+
+# `Context`
+
+- less boilerplate
+- works even with several levels of components
+- ❌ coupling through context
+
+::right::
+
+```tsx
+const InputContext = createContext<Omit<InputProps, 'endDecorator'>>({
+  value: '',
+  onChange: () => {},
+})
+
+function Input({ value, onChange, endDecorator }: InputProps) {
+  return (
+    <div className='input-container'>
+      <input
+        className='input'
+        value={value}
+        onChange={event => onChange(event.target.value, event)}
+        placeholder='Type something...'
+      />
+      <InputContext.Provider value={{ value, onChange }}>
+        {endDecorator}
+      </InputContext.Provider>
+    </div>
+  )
+}
+
+function ClearButton() {
+  const { value, onChange } = useContext(InputContext)
+
+  return (
+    value && (
+      <div className='end-decorator'>
+        <button className='button' onClick={() => onChange('')}>
+          <XCircleIcon className='h-8 w-8' />
+        </button>
+      </div>
+    )
+  )
+}
+
+export default function Example() {
+  const [value, setValue] = useState('')
+
+  return (
+    <Input value={value} onChange={setValue} endDecorator={<ClearButton />} />
+  )
+}
+```
+
+---
+layout: two-cols
+---
+
+# `render` function
+
+- less coupling than context
+- easy to create
+- power to mix function and components
+- ❌ lose component lifecycle 
+
+
+::right::
+
+```tsx
+export interface InputProps {
+  value: string | number
+  onChange: (value: string, event?: React.SyntheticEvent) => void
+  renderEndDecorator?: ( value: string, onChange: (value: string, event?: React.SyntheticEvent) => void) => React.ReactNode
+}
+
+function Input({ value, onChange, renderEndDecorator }: InputProps) {
+  return (
+    <div className='input-container'>
+      <input
+        className='input'
+        value={value}
+        onChange={event => onChange(event.target.value, event)}
+        placeholder='Type something...'
+      />
+      {renderEndDecorator(value, onChange)}
+    </div>
+  )
+}
+
+function renderClearButton(value: string, onChange: (value: string, event?: React.SyntheticEvent) => void) {
+  return (
+    value && (
+      <div className='end-decorator'>
+        <button className='button' onClick={() => onChange('')}>
+          <XCircleIcon className='h-8 w-8' />
+        </button>
+      </div>
+    )
+  )
+}
+
+export default function Example() {
+  const [value, setValue] = useState('')
+
+  return (
+    <Input value={value} onChange={setValue} renderEndDecorator={renderClearButton} />
+  )
+}
+```
+
+---
+layout: two-cols
+---
+
+# `slot` Prop function
+
+- loose coupling
+- easy to create
+- better than `render` function
+- access to lifecycle
+- harder for junior developers
+- MUI uses this pattern in the `slots` prop
+- Harder to set extra props values 
+
+::right::
+
+```tsx
+export interface InputProps {
+  value: string | number
+  onChange: (value: string, event?: React.SyntheticEvent) => void
+  EndDecorator?: ({ value, onChange }) => React.ReactNode
+}
+
+function Input({ value, onChange, EndDecorator }: InputProps) {
+  return (
+    <div className='input-container'>
+      <input
+        className='input'
+        value={value}
+        onChange={event => onChange(event.target.value, event)}
+        placeholder='Type something...'
+      />
+      <EndDecorator value={value} onChange={onChange} />
+    </div>
+  )
+}
+
+function ClearButton({ value, onChange }) {
+  return (
+    value && (
+      <div className='end-decorator'>
+        <button className='button' onClick={() => onChange('')}>
+          <XCircleIcon className='h-8 w-8' />
+        </button>
+      </div>
+    )
+  )
+}
+
+export default function Example() {
+  const [value, setValue] = useState('')
+
+  return (
+    <Input value={value} onChange={setValue} EndDecorator={ClearButton} />
+  )
+}
+```
 
 ---
 layout: two-cols
@@ -685,125 +885,6 @@ function Input({ value, onChange, endDecorator }: InputProps) {
 }
 
 function ClearButton({ value, onChange }: any) {
-  return (
-    value && (
-      <div className='end-decorator'>
-        <button className='button' onClick={() => onChange('')}>
-          <XCircleIcon className='h-8 w-8' />
-        </button>
-      </div>
-    )
-  )
-}
-
-export default function Example() {
-  const [value, setValue] = useState('')
-
-  return (
-    <Input value={value} onChange={setValue} endDecorator={<ClearButton />} />
-  )
-}
-```
-
----
-layout: two-cols
----
-
-# `renderEndDecorator`
-
-- mix with `renderProps` Pattern (second way to extend components in React)
-- loose coupling
-- props require to match
-- mixing function and component that seems weird for junior developers
-
-::right::
-
-```tsx
-export interface InputProps {
-  value: string | number
-  onChange: (value: string, event?: React.SyntheticEvent) => void
-  renderEndDecorator?: ({ value, onChange }) => React.ReactNode
-}
-
-function Input({ value, onChange, renderEndDecorator }: InputProps) {
-  return (
-    <div className='input-container'>
-      <input
-        className='input'
-        value={value}
-        onChange={event => onChange(event.target.value, event)}
-        placeholder='Type something...'
-      />
-      {renderEndDecorator({ value, onChange })}
-    </div>
-  )
-}
-
-function ClearButton({ value, onChange }) {
-  return (
-    value && (
-      <div className='end-decorator'>
-        <button className='button' onClick={() => onChange('')}>
-          <XCircleIcon className='h-8 w-8' />
-        </button>
-      </div>
-    )
-  )
-}
-
-export default function Example() {
-  const [value, setValue] = useState('')
-
-  return (
-    <Input value={value} onChange={setValue} renderEndDecorator={ClearButton} />
-  )
-}
-```
-
----
-layout: two-cols
----
-
-# `Context`
-
-- strong coupling
-- cleaner
-- works even with several levels of components
-
-But now:
-
-- multiple components strongly coupled
-- no easy way to read the coupling
-
-**Can we even do better?**
-
-::right::
-
-```tsx
-const InputContext = createContext<Omit<InputProps, 'endDecorator'>>({
-  value: '',
-  onChange: () => {},
-})
-
-function Input({ value, onChange, endDecorator }: InputProps) {
-  return (
-    <div className='input-container'>
-      <input
-        className='input'
-        value={value}
-        onChange={event => onChange(event.target.value, event)}
-        placeholder='Type something...'
-      />
-      <InputContext.Provider value={{ value, onChange }}>
-        {endDecorator}
-      </InputContext.Provider>
-    </div>
-  )
-}
-
-function ClearButton() {
-  const { value, onChange } = useContext(InputContext)
-
   return (
     value && (
       <div className='end-decorator'>
@@ -896,6 +977,7 @@ url: https://friedrith.github.io/react-composition/#/8?demo=1
 # Conclusion
 
 - New patterns: `cloneElement`, `render` function, `Compound` pattern
+- Control Inversion: key to see the code from another perspective
 - But more important: React composition
 - Composition is the most underrated pattern in React
 - every time you have a new feature: React composition first
@@ -922,13 +1004,8 @@ layout: two-cols
 # Stay in contact
 
 
-- [https://www.linkedin.com/in/thibault-friedrich/](https://www.linkedin.com/in/thibault-friedrich/)
-- [https://github.com/friedrith](https://github.com/friedrith)
-- [https://medium.com/@thibault-friedrich](https://medium.com/@thibault-friedrich)
-- [thibault.friedrich@interaction-dynamics.io](mailto:thibault.friedrich@interaction-dynamics.io)
-- [https://interaction-dynamics.io](https://interaction-dynamics.io)
-- [https://hackathon-dev-design.vercel.app](https://hackathon-dev-design.vercel.app)
-
+- [https://thibaultfriedrich.io](https://thibaultfriedrich.io)
+- [https://github.com/friedrith/react-composition](https://github.com/friedrith/react-composition)
 
 ::right::
 

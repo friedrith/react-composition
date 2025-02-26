@@ -1,9 +1,14 @@
+import { useSearchParams } from "react-router-dom";
+
 export default function Layout({ title, component: Component }) {
+
+  const [searchParams, setSearchParams] = useSearchParams();
+
   return (
     <div>
-      <h1 className='pb-6 text-center text-3xl font-bold tracking-tight text-gray-900'>
+      {searchParams.get('demo') !== '1' && <h1 className='pb-6 text-center text-3xl font-bold tracking-tight text-gray-900'>
         {title}
-      </h1>
+      </h1>}
       <div className='flex flex-col space-y-6'>
         {typeof Component === 'function' ? (
           <Component />

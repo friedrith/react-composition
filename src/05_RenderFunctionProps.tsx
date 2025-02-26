@@ -4,10 +4,10 @@ import { XCircleIcon } from '@heroicons/react/24/outline'
 export interface InputProps {
   value: string | number
   onChange: (value: string, event?: React.SyntheticEvent) => void
-  renderEndDecorator?: ({ value, onChange }) => React.ReactNode
+  renderEndDecorator?: ( value: string, onChange: (value: string, event?: React.SyntheticEvent) => void ) => React.ReactNode
 }
 
-function Input({ value, onChange, renderEndDecorator }: InputProps) {
+function Input({ value, onChange, renderEndDecorator = () => <></> }: InputProps) {
   return (
     <div className='input-container'>
       <input
@@ -21,7 +21,7 @@ function Input({ value, onChange, renderEndDecorator }: InputProps) {
   )
 }
 
-function ClearButton({ value, onChange }) {
+function renderClearButton(value: string, onChange: (value: string, event?: React.SyntheticEvent) => void) {
   return (
     value && (
       <div className='end-decorator'>
@@ -37,6 +37,6 @@ export default function Example() {
   const [value, setValue] = useState('')
 
   return (
-    <Input value={value} onChange={setValue} renderEndDecorator={ClearButton} />
+    <Input value={value} onChange={setValue} renderEndDecorator={renderClearButton} />
   )
 }

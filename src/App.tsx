@@ -4,9 +4,9 @@ import Initial from './00_Initial'
 import ClearButtonNaive from './01_ClearButtonNaive'
 import ValidityIndicatorNative from './02_ValidityIndicatorNaive'
 import * as BasicComposition from './03_BasicComposition'
-import RenderProps from './04_RenderProps'
-import CloneElement from './05_CloneElement'
-import CompositionContext from './06_CompositionContext'
+import RenderFunctionProps from './05_RenderFunctionProps'
+import CloneElement from './08_CloneElement'
+import CompositionContext from './04_CompositionContext'
 import CompoundPattern from './07_CompoundPattern'
 import * as MoreFeatures from './08_MoreFeatures'
 
@@ -34,16 +34,16 @@ const routes = [
     component: BasicComposition,
   },
   {
-    title: 'RenderProps',
-    component: RenderProps,
+    title: 'Composition Context',
+    component: CompositionContext,
+  },
+  {
+    title: 'RenderFunctionProps',
+    component: RenderFunctionProps,
   },
   {
     title: 'Clone Element',
     component: CloneElement,
-  },
-  {
-    title: 'Composition Context',
-    component: CompositionContext,
   },
   {
     title: 'Compound Pattern',
