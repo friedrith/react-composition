@@ -1,0 +1,19 @@
+{
+  "name": "react-composition-slides",
+  "private": true,
+  "scripts": {
+    "build": "slidev build --base /react-composition/slides --out ../dist/slides",
+    "dev": "slidev --open",
+    "export": "slidev export"
+  },
+  "dependencies": {
+    "@slidev/cli": "^0.49.0",
+    "@slidev/theme-default": "latest"
+  },
+  "devDependencies": {
+    "@unocss/reset": "^0.55.7",
+    "playwright-chromium": "^1.38.0",
+    "vite-plugin-vue-server-ref": "^0.3.4",
+    "vue": "^3.3.4"
+  }
+}

@@ -16,8 +16,14 @@ This is a demo project to show how to use composition pattern in React. It is pa
 ```bash
 pnpm install
 pnpm dev
-
 ```
+
+## History
+
+Several versions of this project are available:
+
+- [First version](https://github.com/friedrith/react-composition/tree/react-montreal-meetup) presented at the [React & React Native MTL Monthly Meetup](https://www.meetup.com/react-mtl/events/294497412/) of November 2023.
+- [Second version](https://github.com/friedrith/react-composition/master) presented at the [https://confoo.ca/en/2025] of February 2025.
 
 ## License
 
