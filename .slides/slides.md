@@ -161,7 +161,7 @@ layout: cool-demo
 url: https://friedrith.github.io/react-composition/#/0?demo=1
 ---
 
-# Input Text
+# Text Input
 
 ```tsx
 export interface InputProps {
@@ -298,36 +298,6 @@ export default function Example() {
 layout: two-cols
 ---
 
-# Code Not scalable
-
-<div v-click>
-
-For each new feature:
-- one property 
-- condition in the main function
-
-</div>
-
-<div v-click>
-
-Impact on the development:
-- spaghetti code 
-- one file: one bottleneck
-- harder to read
-- harder to maintain
-
-</div>
-
-<div v-click>
-
-> Flag Argument: a common code smell in all languages (not only React)
-
-</div>
-
-
-
-::right::
-
 ```tsx
 export interface InputProps {
   value: string | number
@@ -374,10 +344,46 @@ h1 + p {
   opacity: 1!important;
   margin-top: 1rem!important;
 }
+
 blockquote { 
   margin-top: 2rem!important;
 }
+
+.slidev-code-wrapper {
+  position: relative;
+  right: 2rem;
+}
 </style>
+
+::right::
+
+# Code Not scalable
+
+
+<div v-click>
+
+For each new feature:
+- one property 
+- condition in the main function
+
+</div>
+
+<div v-click>
+
+Impact on the development:
+- spaghetti code 
+- one file: one bottleneck
+- harder to read
+- harder to maintain
+
+</div>
+
+<div v-click>
+
+> Flag Argument: a common code smell in all languages (not only React)
+
+</div>
+
 
 ---
 

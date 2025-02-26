@@ -68,6 +68,13 @@ const App = () => {
                 element={<Layout title={title} component={component} />}
               />
             ))}
+            {routes.map(({ title, component }, index) => (
+              <Route
+                key={title}
+                path={`/${title.toLowerCase().replace(/ /g, '-')}`}
+                element={<Layout title={title} component={component} />}
+              />
+            ))}
             <Route path='*' element={<Navigate to='/0' replace={true} />} />
           </Routes>
         </Page>
