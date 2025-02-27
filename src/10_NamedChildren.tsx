@@ -1,4 +1,4 @@
-import { useState, createContext, useContext, Children, ForwardRefExoticComponent, SVGProps, RefAttributes } from 'react'
+import React, { useState, createContext, useContext, Children, ForwardRefExoticComponent, SVGProps, RefAttributes } from 'react'
 import { XCircleIcon, EnvelopeIcon } from '@heroicons/react/24/outline'
 
 export interface InputProps extends React.PropsWithChildren {
@@ -14,10 +14,9 @@ const InputContext = createContext<Omit<InputProps, 'endDecorator'>>({
 
 const useSlots = (children: React.ReactNode): Record<string, React.ReactNode> => {
   return Children.toArray(children).reduce((acc, child) => {
-
     return {
       ...acc,
-      [child.type.name]: child.props.children
+      [(child as any).type.name]: (child as any).props.children
     }
   }, {})
 }
