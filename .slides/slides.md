@@ -5,7 +5,7 @@ lineNumbers: false
 fonts:
   sans: 'Inter var, sans-serif'
 info: |
-  ## React Composition
+  ## SOLID Principles in React
   Presentation slides for the [React & React Native MTL Monthly Meetup](https://www.meetup.com/react-mtl/events/294497412/]
 transition: slide-left
 title: Composition Pattern in React
@@ -18,7 +18,7 @@ favicon: https://secure.meetupstatic.com/next/images/general/favicon.ico
 
 ---
 
-<h1 class="line-height-tight!">SOLID Principle<br/>in React</h1>
+<h1 class="line-height-tight!">SOLID Principles<br/>in React</h1>
 
 <h2 class="font-700">How to keep components clean</h2>
 
@@ -783,7 +783,7 @@ layout: cool-demo
 url: https://friedrith.github.io/react-composition/#/named-children?demo=1
 ---
 
-# Named children
+# Named children/slots
 
 ```tsx
 function Input({ value, onChange, children }: InputProps) {

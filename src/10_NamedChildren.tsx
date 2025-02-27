@@ -1,5 +1,5 @@
 import { useState, createContext, useContext, Children, ForwardRefExoticComponent, SVGProps, RefAttributes } from 'react'
-import { CheckIcon, XCircleIcon, EnvelopeIcon } from '@heroicons/react/24/outline'
+import { XCircleIcon, EnvelopeIcon } from '@heroicons/react/24/outline'
 
 export interface InputProps extends React.PropsWithChildren {
   value: string | number
