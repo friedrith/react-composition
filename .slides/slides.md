@@ -361,7 +361,7 @@ Impact on the development:
 
 <div v-click class="pl-4">
 
-> Flag Argument: a common code smell in all languages (not only React)
+> Flag Argument is often a code smell
 
 </div>
 
@@ -773,7 +773,7 @@ url: https://friedrith.github.io/react-composition/#/more-features?demo=1
 ```
 ---
 layout: cool-demo
-url: https://friedrith.github.io/react-composition/#/10?demo=1
+url: https://friedrith.github.io/react-composition/#/named-children?demo=1
 ---
 
 # Named children/slots
