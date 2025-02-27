@@ -62,20 +62,23 @@ body, html, #app {
       @apply mr-4;
     }
 
-    .neumorphism .input {
+    .neumorphism .input-container {
       border-radius: 20px;
       background: var(--background);
       border: none;
       box-shadow: inset 4px 4px 8px #bebebe,
                   inset -4px -4px 8px #ffffff;
 
-      outline: none;
-
-
-      @apply block w-80 border-0 py-5 pl-6 pr-20;
+      @apply flex items-stretch w-80 relative;
     }
 
-    .neumorphism .input:focus {
+    .neumorphism .input {
+      background: transparent;
+      outline: none;
+      @apply border-0 py-5 pl-6 pr-20;
+    }
+
+    .neumorphism .input-container:has(input:focus) {
       box-shadow: inset 6px 6px 12px #bebebe,
                   inset -6px -6px 12px #ffffff;
     }
@@ -107,30 +110,11 @@ body, html, #app {
     .neumorphism .end-decorator {
       @apply inset-y-2;
     }
-    
-    .input-container {
-      @apply relative;
-      /* @apply relative rounded-md shadow-sm; */
+
+    .neumorphism .start-decorator {
+      @apply flex flex-row items-center;
     }
-
-
-    body:not(.neumorphism) .input {
-      @apply block w-full rounded-md border-0 py-1.5 pl-2 pr-10 text-blue-900 ring-1 ring-inset ring-blue-300 placeholder:text-blue-300 focus:ring-1 focus:ring-inset focus:ring-blue-500 sm:text-sm sm:leading-6;
-    }
-
-    body:not(.neumorphism) .end-decorator {
-      @apply inset-y-0 mr-1;
-    }
-
-    body:not(.neumorphism) .indicator {
-      @apply text-blue-500;
-    }
-
-    body:not(.neumorphism) .button {
-      @apply text-blue-500;
-    }
-    
-
+  
   }
 }
 

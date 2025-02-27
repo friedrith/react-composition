@@ -4,11 +4,13 @@ import Initial from './00_Initial'
 import ClearButtonNaive from './01_ClearButtonNaive'
 import ValidityIndicatorNative from './02_ValidityIndicatorNaive'
 import * as BasicComposition from './03_BasicComposition'
-import RenderFunctionProps from './05_RenderFunctionProps'
-import CloneElement from './08_CloneElement'
+import RenderFunctionProps from './07_RenderFunctionProps'
+import CloneElement from './09_CloneElement'
 import CompositionContext from './04_CompositionContext'
-import CompoundPattern from './07_CompoundPattern'
-import * as MoreFeatures from './08_MoreFeatures'
+import CompoundPattern from './06_CompoundPattern'
+import * as MoreFeatures from './05_MoreFeatures'
+import SlotsPropPattern from './08_SlotsPropPattern'
+import NamedChildren from './10_NamedChildren'
 
 import Navigation from './utils/Navigation'
 import Layout from './utils/Layout'
@@ -38,20 +40,28 @@ const routes = [
     component: CompositionContext,
   },
   {
-    title: 'RenderFunctionProps',
-    component: RenderFunctionProps,
-  },
-  {
-    title: 'Clone Element',
-    component: CloneElement,
+    title: 'More Features',
+    component: MoreFeatures,
   },
   {
     title: 'Compound Pattern',
     component: CompoundPattern,
   },
   {
-    title: 'More Features',
-    component: MoreFeatures,
+    title: 'RenderFunctionProps',
+    component: RenderFunctionProps,
+  },
+  {
+    title: 'SlotsPropPattern',
+    component: SlotsPropPattern,
+  },
+  {
+    title: 'Clone Element',
+    component: CloneElement,
+  },
+  {
+    title: 'Named Children',
+    component: NamedChildren,
   },
 ]
 

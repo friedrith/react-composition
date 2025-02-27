@@ -50,6 +50,6 @@ h1 {
 .slidev-code {
   max-height: 520px!important;
   overflow: auto;
+  max-height: 40vh!important;
 }
-
 

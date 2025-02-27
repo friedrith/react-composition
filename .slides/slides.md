@@ -158,7 +158,7 @@ image: complexity.webp
 
 ---
 layout: cool-demo
-url: https://friedrith.github.io/react-composition/#/0?demo=1
+url: https://friedrith.github.io/react-composition/#/text-input?demo=1
 ---
 
 # Text Input
@@ -199,7 +199,7 @@ export default function Example() {
 
 ---
 layout: cool-demo
-url: https://friedrith.github.io/react-composition/#/1?demo=1
+url: https://friedrith.github.io/react-composition/#/clear-button?demo=1
 ---
 
 # Clear Button
@@ -248,7 +248,7 @@ export default function Example() {
 
 ---
 layout: cool-demo
-url: https://friedrith.github.io/react-composition/#/2?demo=1
+url: https://friedrith.github.io/react-composition/#/validity-indicator?demo=1
 ---
 
 # Validity Indicator
@@ -298,6 +298,8 @@ export default function Example() {
 layout: two-cols
 ---
 
+# Code Not scalable
+
 ```tsx
 export interface InputProps {
   value: string | number
@@ -346,21 +348,14 @@ h1 + p {
 }
 
 blockquote { 
-  margin-top: 2rem!important;
+  margin-top: 1rem!important;
 }
 
-.slidev-code-wrapper {
-  position: relative;
-  right: 2rem;
-}
 </style>
 
 ::right::
 
-# Code Not scalable
-
-
-<div v-click>
+<div v-click class="pl-4 pt-20">
 
 For each new feature:
 - one property 
@@ -368,7 +363,7 @@ For each new feature:
 
 </div>
 
-<div v-click>
+<div v-click class="pl-4">
 
 Impact on the development:
 - spaghetti code 
@@ -378,7 +373,7 @@ Impact on the development:
 
 </div>
 
-<div v-click>
+<div v-click class="pl-4">
 
 > Flag Argument: a common code smell in all languages (not only React)
 
@@ -460,53 +455,14 @@ blockquote {
 }
 </style>
 
----
-layout: two-cols
----
 
-
-# Basic Composition 
-
-- React component becomes lighter
-- `endDecorator` children is isolated
-- only one more property `endDecorator`
-- won't require modification for next extension
-- more scalable
-
-::right::
-
-```tsx
-export interface InputProps {
-  value: string | number
-  onChange: (value: string, event?: React.SyntheticEvent) => void
-  endDecorator?: React.ReactNode
-}
-
-function Input({ value, onChange, endDecorator }: InputProps) {
-  return (
-    <div className='input-container'>
-      <input
-        className='input'
-        value={value}
-        onChange={event => onChange(event.target.value, event)}
-        placeholder='Type something...'
-      />
-      {endDecorator}
-    </div>
-  )
-}
-```
 
 ---
-layout: two-cols
+layout: cool-demo
+url: https://friedrith.github.io/react-composition/#/3?demo=1
 ---
 
-# Component `ClearButton`
-
-- Feature isolated in separated React Component
-- Extension, not modification
-
-::right::
+# Basic composition
 
 ```tsx
 export interface InputProps {
@@ -541,7 +497,7 @@ function ClearButton({ value, onChange }) {
   )
 }
 
-export function Example1() {
+export function WithClearButton() {
   const [value, setValue] = useState('')
 
   return (
@@ -552,22 +508,39 @@ export function Example1() {
     />
   )
 }
+
+function ValidityIndicator({ value, validityRegex }) {
+  return (
+    `${value}`.match(validityRegex) && (
+      <div className='end-decorator'>
+        <CheckIcon className='h-6 w-6 indicator' />
+      </div>
+    )
+  )
+}
+
+export function WithValidityIndicator() {
+  const [value, setValue] = useState('')
+
+  return (
+    <Input
+      value={value}
+      onChange={setValue}
+      endDecorator={
+        <ValidityIndicator value={value} validityRegex={minLengthRegex} />
+      }
+    />
+  )
+}
 ```
+
 
 ---
 layout: two-cols
+url: https://friedrith.github.io/react-composition/#/3?demo=1
 ---
 
-# Component `ValidityIndicator`
-
-- no more spaghetti code
-- less combination of conditions
-- removing code is faster
-- debugging is straightforward
-- but require more boilerplate
-
-
-::right::
+# Basic composition
 
 ```tsx
 export interface InputProps {
@@ -590,39 +563,18 @@ function Input({ value, onChange, endDecorator }: InputProps) {
   )
 }
 
-function ValidityIndicator({ value, validityRegex }) {
+function ClearButton({ value, onChange }) {
   return (
-    `${value}`.match(validityRegex) && (
+    value && (
       <div className='end-decorator'>
-        <CheckIcon className='h-6 w-6 indicator' />
+        <button className='button' onClick={() => onChange('')}>
+          <XCircleIcon className='h-8 w-8' />
+        </button>
       </div>
     )
   )
 }
 
-export function Example2() {
-  const [value, setValue] = useState('')
-
-  return (
-    <Input
-      value={value}
-      onChange={setValue}
-      endDecorator={
-        <ValidityIndicator value={value} validityRegex={minLengthRegex} />
-      }
-    />
-  )
-}
-```
-
----
-layout: cool-demo
-url: https://friedrith.github.io/react-composition/#/3?demo=1
----
-
-# React composition demo
-
-```tsx
 export function WithClearButton() {
   const [value, setValue] = useState('')
 
@@ -632,6 +584,16 @@ export function WithClearButton() {
       onChange={setValue}
       endDecorator={<ClearButton value={value} onChange={setValue} />}
     />
+  )
+}
+
+function ValidityIndicator({ value, validityRegex }) {
+  return (
+    `${value}`.match(validityRegex) && (
+      <div className='end-decorator'>
+        <CheckIcon className='h-6 w-6 indicator' />
+      </div>
+    )
   )
 }
 
@@ -650,20 +612,29 @@ export function WithValidityIndicator() {
 }
 ```
 
-<div class="absolute top-65 right-15 text-white h-10 w-40" v-mark="{ at: 1, color: 'orange', type: 'circle' }"></div>
+::right::
 
 
-<div class="absolute bottom-5 right-20 text-white h-10 w-40" v-mark="{ at: 1, color: 'orange', type: 'circle' }"></div>
+<div v-click class="pl-4 pt-20">
+
+- each feature isolated in separated Component
+- extension, not modification
+- no more spaghetti code
+- less combination of conditions
+- removing code is faster
+- debugging is straightforward
+- BUT: a lot of boilerplate when calling this pattern
+
+</div>
+
 
 
 ---
 
-# So much boilerplate!
+# How to reduce the boilerplate?
 
-How to reduce it:
-
-- `Context`
-- `render` function pattern
+- Composition + Context
+- render function pattern
 - slots and slotProps pattern
 - `cloneElement`
 
@@ -682,13 +653,7 @@ h1 + p {
 layout: two-cols
 ---
 
-# `Context`
-
-- less boilerplate
-- works even with several levels of components
-- ❌ coupling through context
-
-::right::
+# Composition + Context
 
 ```tsx
 const InputContext = createContext<Omit<InputProps, 'endDecorator'>>({
@@ -735,19 +700,136 @@ export default function Example() {
 }
 ```
 
+::right::
+
+<div v-click class="pl-4 pt-20">
+
+- less boilerplate
+- works even with several levels of components
+- ❌ high level of coupling
+
+</div>
+
+--- 
+layout: two-cols
+---
+
+# Composition + Context + Compound Pattern
+
+```tsx
+// ... declaring Input and ClearButton
+
+Input.ClearButton = ClearButton
+
+export default function Example() {
+  const [value, setValue] = useState('')
+
+  return (
+    <Input
+      value={value}
+      onChange={setValue}
+      endDecorator={<Input.ClearButton />}
+    />
+  )
+}
+```
+
+::right::
+
+<div v-click class="pl-4 pt-20">
+
+- make the coupling between `Input` and `ClearButton` visible for all the developers
+- used a lot but some libraries start to move away from this pattern (headlessui for example)
+
+</div>
+
+<style>
+  blockquote {
+    margin-top: 2rem!important;
+  }
+</style>
+
+---
+layout: cool-demo
+url: https://friedrith.github.io/react-composition/#/more-features?demo=1
+---
+
+```tsx
+// ... declarations before
+
+<Input value={value} onChange={setValue}
+  endDecorator={<Input.ClearButton />}
+/>
+
+<Input value={value} onChange={setValue}
+  endDecorator={<Input.ValidityIndicator regex={minLengthRegex} />}
+/>
+
+<Input value={value} onChange={setValue}
+  type='password'
+  endDecorator={<Input.PasswordToggleButton />}
+/>
+
+<Input value={value} onChange={setValue}
+  endDecorator={<Input.CopyToClipboard />}
+/>
+
+<Input value={value} onChange={setValue}
+  endDecorator={<Input.KeyBinding keyBinding='⌘+K' />}
+/>
+```
+---
+layout: cool-demo
+url: https://friedrith.github.io/react-composition/#/named-children?demo=1
+---
+
+# Named children
+
+```tsx
+function Input({ value, onChange, children }: InputProps) {
+  
+  const { InputEndDecorator, InputStartDecorator } = useSlots(children)
+
+  return (
+    <div className='input-container'>
+      <InputContext.Provider value={{ value, onChange }}>
+        {InputStartDecorator}
+      </InputContext.Provider>
+      <input
+        className='input'
+        value={value}
+        onChange={event => onChange(event.target.value, event)}
+        placeholder='Type something...'
+      />
+      <InputContext.Provider value={{ value, onChange }}>
+        {InputEndDecorator}
+      </InputContext.Provider>
+    </div>
+  )
+}
+
+export default function Example() {
+  const [value, setValue] = useState('')
+
+  return (
+    <Input value={value} onChange={setValue}>
+      <InputStartDecorator>
+        <StartIcon icon={EnvelopeIcon} />
+      </InputStartDecorator>
+      <InputEndDecorator>
+        <ClearButton />
+      </InputEndDecorator>
+    </Input>
+  )
+}
+```
+
+
 ---
 layout: two-cols
 ---
 
-# `render` function
-
-- less coupling than context
-- easy to create
-- power to mix function and components
-- ❌ lose component lifecycle 
-
-
-::right::
+# render function
 
 ```tsx
 export interface InputProps {
@@ -791,21 +873,24 @@ export default function Example() {
 }
 ```
 
+::right::
+
+<div v-click class="pl-4 pt-20">
+
+- less coupling than context
+- easy to create
+- power to mix function and components
+- ❌ lose component lifecycle 
+
+</div>
+
+
+
 ---
 layout: two-cols
 ---
 
-# `slot` Prop function
-
-- loose coupling
-- easy to create
-- better than `render` function
-- access to lifecycle
-- harder for junior developers
-- MUI uses this pattern in the `slots` prop
-- Harder to set extra props values 
-
-::right::
+# slots pattern
 
 ```tsx
 export interface InputProps {
@@ -849,29 +934,28 @@ export default function Example() {
 }
 ```
 
+::right::
+
+<div v-click class="pl-4 pt-20">
+
+- keep loose coupling
+- easy to create
+- better than `render` function
+- access to lifecycle
+- harder for junior developers
+- MUI uses this pattern in the `slots` prop
+
+</div>
+
 ---
 layout: two-cols
 ---
 
 # `cloneElement`
 
-- modify props of the child
-- loose coupling
-- smooth code
-- may lead to misunderstanding
-
-
-[React Documentation](https://react.dev/reference/react/cloneElement) warns against this practice:
-
-<img src="/react-warning.png" alt="React warning">
-
-> But still useful sometimes
-
-::right::
-
-```tsx {16}
+```tsx {all|16}{at:1}
 export interface InputProps {
-  value: string | number
+  value: string | number  
   onChange: (value: string, event?: React.SyntheticEvent) => void
   endDecorator?: React.ReactNode
 }
@@ -911,84 +995,40 @@ export default function Example() {
 }
 ```
 
---- 
-layout: two-cols
----
-
-# Context + React Compound Pattern
-
-- make the coupling between `Input` and `ClearButton` visible for all the developers
-
-> works also with `Reac.FC` but requires some tricks in Typescript
-
 ::right::
 
-```tsx
-// ... declaring Input and ClearButton
+<div v-click="2" class="pl-4 pt-20">
 
-Input.ClearButton = ClearButton
-
-export default function Example() {
-  const [value, setValue] = useState('')
-
-  return (
-    <Input
-      value={value}
-      onChange={setValue}
-      endDecorator={<Input.ClearButton />}
-    />
-  )
-}
-```
+- modify props of the child
+- loose coupling
+- smooth code
+- may lead to misunderstanding
 
 
-<style>
-  blockquote {
-    margin-top: 2rem!important;
-  }
-</style>
+[React Documentation](https://react.dev/reference/react/cloneElement) warns against this practice:
 
----
-layout: cool-demo
-url: https://friedrith.github.io/react-composition/#/8?demo=1
----
+<img src="/react-warning.png" alt="React warning">
 
-```tsx
-// ... declarations before
+> But still useful sometimes when you cannot update the endDecorator component
 
-<Input value={value} onChange={setValue}
-  endDecorator={<Input.ClearButton />}
-/>
+</div>
 
-<Input value={value} onChange={setValue}
-  endDecorator={<Input.ValidityIndicator regex={minLengthRegex} />}
-/>
-
-<Input value={value} onChange={setValue}
-  type='password'
-  endDecorator={<Input.PasswordToggleButton />}
-/>
-
-<Input value={value} onChange={setValue}
-  endDecorator={<Input.CopyToClipboard />}
-/>
-
-<Input value={value} onChange={setValue}
-  endDecorator={<Input.KeyBinding keyBinding='⌘+K' />}
-/>
-```
 
 ---
 
 # Conclusion
 
-- New patterns: `cloneElement`, `render` function, `Compound` pattern
-- Control Inversion: key to see the code from another perspective
-- But more important: React composition
-- Composition is the most underrated pattern in React
-- every time you have a new feature: React composition first
+- For high level of coupling: 
+  - **Composition + Context**
+- For low level of coupling: 
+  - **slots pattern, render function, cloneElement**
+- Every time you have a new feature:
+  1. find how to not modify existing components
+  2. if you have to: use one of the patterns to respect the principles:
+    - Open-Close Principle
+    - Single Responsibility Principle
+    - Control Inversion: key to see the code from another perspective
 
-> Craftsmanship: no absolute rule, exception always exist
 
 <style>
   blockquote {
