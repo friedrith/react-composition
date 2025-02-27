@@ -747,6 +747,8 @@ layout: cool-demo
 url: https://friedrith.github.io/react-composition/#/more-features?demo=1
 ---
 
+# More examples
+
 ```tsx
 // ... declarations before
 
