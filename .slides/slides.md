@@ -20,7 +20,7 @@ favicon: https://secure.meetupstatic.com/next/images/general/favicon.ico
 
 <h1 class="line-height-tight!">SOLID Principles<br/>in React</h1>
 
-<h2 class="font-700">How to keep components clean</h2>
+<h2 class="font-700">How to keep your React components clean</h2>
 
 <div class="font-700 pt-4 text-gray-600">
     Thibault FRIEDRICH - 2025/02/27
@@ -88,7 +88,7 @@ backgroundSize: cover
   - Simulate process of development 
     - One Common mistake while writing React components
 - How to increase readability and maintainability of your components
-  - Multiple patterns
+  - Multiple patterns available
 
 > ⚠️ A lot of code incoming ⚠️
 
@@ -106,14 +106,14 @@ image: complexity.webp
 
 # Agile, Code Craftsmanship & Clean Code
 
-<p class="text-center italic py-10 text-xl">
-  Working software over comprehensive documentation
-</p>
-
 - keep your code clean
   - make your code more readable
   - ensure the code is scalable
 - maintain velocity over time
+
+<p class="text-center italic py-8 text-xl">
+  Working software over comprehensive documentation
+</p>
 
 > Craftsmanship: no absolute rule, but principles to adapt and make compromises.
 
@@ -1032,15 +1032,14 @@ export default function Example() {
 
 </style>
 
----
-layout: center
----
-
-# Questions?
 
 ---
 layout: two-cols
 ---
+
+# Questions ?
+
+<div class="h-30"></div>
 
 # Stay in contact
 
