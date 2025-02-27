@@ -16,7 +16,7 @@ const useSlots = (children: React.ReactNode): Record<string, React.ReactNode> =>
   return Children.toArray(children).reduce((acc, child) => {
     return {
       ...acc,
-      [(child as any).type.name]: (child as any).props.children
+      [(child as any).type.displayName]: (child as any).props.children
     }
   }, {})
 }
@@ -47,9 +47,14 @@ function InputEndDecorator({ children }: React.PropsWithChildren) {
   return <>{children}</>
 } 
 
+InputEndDecorator.displayName = 'InputEndDecorator'
+
 function InputStartDecorator({ children }: React.PropsWithChildren) {
   return <>{children}</>
 } 
+
+InputStartDecorator.displayName = 'InputStartDecorator'
+
 
 function StartIcon({ icon: Icon }: { icon: ForwardRefExoticComponent<Omit<SVGProps<SVGSVGElement>, "ref"> & { title?: string; titleId?: string; } & RefAttributes<SVGSVGElement>>; }) {
   return (

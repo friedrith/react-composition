@@ -26,10 +26,10 @@ favicon: https://secure.meetupstatic.com/next/images/general/favicon.ico
     Thibault FRIEDRICH - 2025/02/27
 </div>
 
-<div class="absolute right-20 bottom-20 text-center" v-mark="{ at: 1, color: 'orange', type: 'circle' }">
+<!-- <div class="absolute right-20 bottom-20 text-center" v-mark="{ at: 1, color: 'orange', type: 'circle' }">
 <img src="/qrcode.svg" class="w-30" />
 Feedback form
-</div>
+</div> -->
 
 <style>
 h1 {
@@ -1050,8 +1050,8 @@ layout: two-cols
 
 <div class="text-center flex flex-col items-center">
 
-<img src="/qrcode.svg" class="h-60 w-60" alt="feedback form" />
+<img src="/qrcode-repo.svg" class="h-60 w-60" alt="repository" />
 
-Feedback form
+Repository
 
 </div>
