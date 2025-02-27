@@ -83,14 +83,12 @@ backgroundSize: cover
 
 # Agenda
 
-- SOLID Principle
 - Why SOLID? 
   - Clean Code
   - Simulate process of development 
     - One Common mistake while writing React components
-- How to solve it with Composition pattern in React
-  - Big dive to enhance the readibility of the code
-  - [Compound pattern](https://www.patterns.dev/posts/compound-pattern)
+- How to increase readability and maintainability of your components
+  - Multiple patterns
 
 > ⚠️ A lot of code incoming ⚠️
 
@@ -100,18 +98,6 @@ blockquote {
 }
 
 </style>
-
----
-
-# SOLID Principle: Some theory
-
-- <span v-mark.highlight.orange>**S**ingle Responsibility Principle</span>
-- <span v-mark.highlight.orange>**O**pen-Close Principle</span>
-- **L**iskov Substitution Principle
-- **I**nterface Segregation Principle
-- <span v-mark.highlight.orange>**D**ependency Inversion Principle</span>
-
-
 
 ---
 layout: two-cols
@@ -384,24 +370,31 @@ Impact on the development:
 
 # How to do better? SOLID
 
-- Single Responsibility Principle
+- <span v-mark.highlight.orange>**S**ingle Responsibility Principle</span><span v-click="1">: each component is responsible for one feature</span>
+- <span v-mark.highlight.orange>**O**pen-Close Principle</span><span v-click="2">: open to extension, close to modification ➡️ less bugs</span>
+- **L**iskov Substitution Principle
+- **I**nterface Segregation Principle
+- <span v-mark.highlight.orange>**D**ependency Inversion Principle</span><span v-click="3">: inversion of control, give the control to your parent component</span>
+
+
+
+<!-- - Single Responsibility Principle
   - each component is responsible for one feature 
 - Open-Close Principle
   - open to extension, close to modification: Less modification, more stability, less bugs
-  
+   -->
 
 
-<span v-click> **How to apply them in React?** </span>
+<span v-click> **Are you sure you apply them in React?** </span>
 
-  <div v-click class="mt-2">➡️ Smaller components</div>
+  <div v-click class="mt-2">➡️ Small components</div>
   <div v-click class="mt-2">➡️ Add features without touching the components</div>
 
 
 <div v-click>
 
 > Seems obvious. But hard in reality.
-> 
-> But I see the previous errors in a lot of codebases. The goal is to master the following patterns to avoid this kind of error.
+> Use the following patterns to help you
 
 
 </div>
@@ -780,7 +773,7 @@ url: https://friedrith.github.io/react-composition/#/more-features?demo=1
 ```
 ---
 layout: cool-demo
-url: https://friedrith.github.io/react-composition/#/named-children?demo=1
+url: https://friedrith.github.io/react-composition/#/10?demo=1
 ---
 
 # Named children/slots
